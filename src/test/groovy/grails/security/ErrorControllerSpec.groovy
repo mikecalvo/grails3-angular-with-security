@@ -30,4 +30,16 @@ class ErrorControllerSpec extends Specification {
     response.status == 404
     payload == [error: 404, message: 'Not found']
   }
+
+  void 'returns proper unauthorized error'() {
+
+    when:
+    controller.unauthorized()
+    def payload = JSON.parse(response.text)
+
+    then:
+    response.contentType == 'application/json;charset=UTF-8'
+    response.status == 401
+    payload == [error: 401, message: 'Unauthorized']
+  }
 }

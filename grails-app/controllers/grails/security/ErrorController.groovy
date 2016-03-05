@@ -2,8 +2,6 @@ package grails.security
 
 class ErrorController {
 
-  def index() {}
-
   def internalServerError() {
     response.status = 500
     render(contentType: 'application/json') {
@@ -20,11 +18,11 @@ class ErrorController {
     }
   }
 
-  def notAllowed() {
+  def unauthorized() {
     response.status = 401
     render(contentType: 'application/json') {
       error = response.status
-      message = 'Not allowed'
+      message = 'Unauthorized'
     }
   }
 }
