@@ -73,8 +73,12 @@ dependencies {
 
   console "org.grails:grails-console"
 
+  // Spring REST Security
   compile 'org.grails.plugins:spring-security-rest:2.0.0.M2'
   compile 'org.grails.plugins:spring-security-rest-gorm:2.0.0.M2'
+
+  // Making REST calls from functional tests
+  testCompile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7'
 }
 
 task wrapper(type: Wrapper) {

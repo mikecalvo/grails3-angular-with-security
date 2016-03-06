@@ -2,7 +2,7 @@ package grails.security
 
 import grails.rest.Resource
 
-@Resource(uri='/api/restaurants', formats = ['json', 'xml'])
+@Resource(uri='/api/restaurants', formats = ['json'])
 class Restaurant {
 
   String name

@@ -1,6 +1,4 @@
-import grails.security.MySecurityEventListener
-
 // Place your Spring DSL code here
+//noinspection GrPackage,GroovyUnusedAssignment
 beans = {
-  mySecurityEventListener(MySecurityEventListener)
 }
