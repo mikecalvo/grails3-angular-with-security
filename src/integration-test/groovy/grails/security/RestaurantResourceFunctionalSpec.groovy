@@ -44,4 +44,13 @@ class RestaurantResourceFunctionalSpec extends GebSpec {
     //noinspection GroovyDoubleNegation
     !!(token = response.data.access_token)
   }
+
+  def 'using token access to restaurants endpoint allowed'() {
+    when:
+    def response = restClient.get(path: '/api/restaurants', headers: ['X-Auth-Token': token])
+
+    then:
+    response.status == 200
+    response.data.size() == 0
+  }
 }
