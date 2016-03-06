@@ -39,8 +39,8 @@ class ErrorControllerSpec extends Specification {
 
     then:
     response.contentType == 'application/json;charset=UTF-8'
-    response.status == 401
-    payload == [error: 401, message: 'Forbidden']
+    response.status == 403
+    payload == [error: 403, message: 'Forbidden']
   }
 
   void 'returns proper unauthorized error'() {
@@ -51,7 +51,7 @@ class ErrorControllerSpec extends Specification {
 
     then:
     response.contentType == 'application/json;charset=UTF-8'
-    response.status == 403
-    payload == [error: 403, message: 'Unauthorized']
+    response.status == 401
+    payload == [error: 401, message: 'Unauthorized']
   }
 }

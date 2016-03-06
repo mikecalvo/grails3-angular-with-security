@@ -18,19 +18,19 @@ class ErrorController {
     }
   }
 
-  def forbidden() {
+  def unauthorized() {
     response.status = 401
     render(contentType: 'application/json') {
       error = response.status
-      message = 'Forbidden'
+      message = 'Unauthorized'
     }
   }
 
-  def unauthorized() {
+  def forbidden() {
     response.status = 403
     render(contentType: 'application/json') {
       error = response.status
-      message = 'Unauthorized'
+      message = 'Forbidden'
     }
   }
 }
