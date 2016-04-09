@@ -6,15 +6,15 @@
 // to create separate JavaScript files as needed.
 //
 //= require jquery-2.1.3.js
-//= require_tree .
+//= require ../bower/bootstrap.js
+//= require ../bower/angular/angular.js
+//= require ../bower/angular-resource/angular-resource.js
+//= require ../bower/angular-route/angular-route.js
 //= require_self
+//= require_tree .
 
-if (typeof jQuery !== 'undefined') {
-    (function($) {
-        $('#spinner').ajaxStart(function() {
-            $(this).fadeIn();
-        }).ajaxStop(function() {
-            $(this).fadeOut();
-        });
-    })(jQuery);
-}
+angular.module('app', ['ngRoute', 'ngResource']);
+
+angular.module('app').controller('welcomeController', function ($scope) {
+  $scope.greeting = 'Hello Stranger'
+});
