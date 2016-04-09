@@ -14,7 +14,3 @@
 //= require_tree .
 
 angular.module('app', ['ngRoute', 'ngResource']);
-
-angular.module('app').controller('welcomeController', function ($scope) {
-  $scope.greeting = 'Hello Stranger'
-});

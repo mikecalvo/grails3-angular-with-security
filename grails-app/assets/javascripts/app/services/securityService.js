@@ -15,7 +15,8 @@ angular.module('app').factory('securityService', ['$http', function($http) {
   };
   
   service.login = function(username, password) {
-    return $http.post('/api/login', {username: username, password: password}).then(loginSuccess, loginFailure);
+    var loginPayload = {username: username, password: password};
+    return $http.post('/api/login', loginPayload).then(loginSuccess, loginFailure);
   };
   
   service.currentUser = function() {
