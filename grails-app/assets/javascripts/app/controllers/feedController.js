@@ -1,7 +1,7 @@
-angular.module('app').controller('feedController', function ($resource, $scope, securityService) {
+angular.module('app').controller('feedController', function ($resource, $scope) {
 
-  var token = securityService.currentUser().token;
-  var Restaurant = $resource('/api/restaurants');
+  // var User = $resource('/user/:userId', {userId:'@id'});
+  var Restaurant = $resource('/api/restaurants/:restaurantId', {restaurantId: '@id'});
 
-  $scope.restaurants = Restaurant.query({headers: {'X-Auth-Token': token}});
+  $scope.restaurants = Restaurant.query();
 });

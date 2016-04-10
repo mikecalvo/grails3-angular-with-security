@@ -51,6 +51,6 @@ class RestaurantResourceFunctionalSpec extends GebSpec {
 
     then:
     response.status == 200
-    response.data.size() == 0
+    response.data.size() == 2
   }
 }
