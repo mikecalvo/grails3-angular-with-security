@@ -9,9 +9,12 @@
 </head>
 
 <body ng-app="app">
-<h1>Restaurants</h1>
 
-<div ng-view>
+<div class="container">
+  <ng-include src="'/app/globalnav.html'"></ng-include>
+
+  <div ng-view></div>
+
 </div>
 
 </body>

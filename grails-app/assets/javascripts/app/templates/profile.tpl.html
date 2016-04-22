@@ -1,0 +1,24 @@
+<form name="form" novalidate>
+    <div class="row">
+        Name:
+        <input type="text" ng-model="user.name" name="uName" required=""/>
+    </div>
+    <div ng-show="form.$submitted || form.uName.$touched" class="row">
+        <div ng-show="form.uName.$error.required">Tell us your name.</div>
+    </div>
+
+    <div class="row">
+        E-mail:
+        <input type="email" ng-model="user.email" name="uEmail" required=""/>
+    </div>
+    <div ng-show="form.$submitted || form.uEmail.$touched" class="row">
+        <span ng-show="form.uEmail.$error.required">Tell us your email.</span>
+        <span ng-show="form.uEmail.$error.email">This is not a valid email.</span>
+    </div>
+
+    <div class="row">
+        <button type="button" ng-click="form.$setPristine();form.$setUntouched()">Reset</button>
+        <button type="submit" ng-class="{'disabled': form.$invalid}" name="ok">OK</button>
+    </div>
+</form>
+

@@ -1,12 +1,12 @@
-angular.module('app').factory('securityService', ['$http', '$rootScope', 'webStorage', function ($http, $rootScope, webStorage) {
+angular.module('app').factory('securityService', ['$http', '$rootScope', '$location', 'webStorage', function ($http, $rootScope, $location, webStorage) {
   var service = {};
 
   var currentUser;
 
   var setCurrentUser = function(user) {
     currentUser = user;
-    webStorage.set('restaurantUser', currentUser);
-    $rootScope.$emit('userChange', currentUser);
+    webStorage.set('restaurantUser', currentUser,false);
+    $rootScope.currentUser = currentUser;
   };
 
   var loginSuccess = function (response) {
@@ -30,7 +30,12 @@ angular.module('app').factory('securityService', ['$http', '$rootScope', 'webSto
     return currentUser;
   };
 
-  setCurrentUser(webStorage.get('restaurantUser'));
+  service.logout = function() {
+    setCurrentUser(undefined);
+    $location.path('/login');
+  };
+
+  setCurrentUser(webStorage.get('restaurantUser', true));
 
   return service;
 }]);
