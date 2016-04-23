@@ -11,5 +11,7 @@ build/
 .classpath
 classes
 .asscache
+TESTS-*.xml
 grails-app/assets/bower
 node_modules/
+coverage/
