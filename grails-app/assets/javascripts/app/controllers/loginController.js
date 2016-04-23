@@ -8,10 +8,10 @@ angular.module('app').controller('loginController', function($scope, $location, 
       .finally(function(result){
         var currentUser = securityService.currentUser();
         if (currentUser) {
-          delete $scope.error;
+          delete $scope.alerts;
           $location.path('/feed');
         } else {
-          $scope.error = 'Invalid login';
+          $scope.alerts = [{msg: 'Invalid login', type: 'danger'}];
         }
       });
   };
