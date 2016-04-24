@@ -37,7 +37,6 @@ describe('navController', function () {
     });
 
     it('when the current user changes, showNav does too', function () {
-      $controller('navController', {$scope: $scope, $rootScope: $rootScope, securityService: securityService});
       $rootScope.currentUser = {name: 'Dude'};
       $rootScope.$digest();
       expect($scope.showNav).toBe(true);
@@ -60,9 +59,11 @@ describe('navController', function () {
         stopPropagation: function () {
         }
       };
+      spyOn(fakeEvent, 'stopPropagation');
       $scope.logout(fakeEvent);
       expect(securityService.logout).toHaveBeenCalled();
-    })
+      expect(fakeEvent.stopPropagation).toHaveBeenCalled();
+    });
 
   });
 });

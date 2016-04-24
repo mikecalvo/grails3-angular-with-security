@@ -45,6 +45,7 @@ describe('securityService', function () {
       expect($location.path()).toBe('/login');
     })
   });
+
   afterEach(function () {
     $httpBackend.verifyNoOutstandingExpectation();
     $httpBackend.verifyNoOutstandingRequest();
